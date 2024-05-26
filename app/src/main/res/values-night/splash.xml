@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="App.starting.Theme" parent="Theme.NewsExpress">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">#1C1E21</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/splash_news_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.NewsExpress</item>
+    </style>
+</resources>
