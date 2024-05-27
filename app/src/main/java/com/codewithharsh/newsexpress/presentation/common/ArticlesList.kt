@@ -18,14 +18,14 @@ import com.codewithharsh.newsexpress.presentation.Dimens.SmallPadding1
 // This ArticlesList composable will be used in the search screen and home screen, that's why i have placed this in common package.
 @Composable
 fun ArticlesList(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     articles: LazyPagingItems<Article>,
     onArticleClick: (Article) -> Unit
 ) {
     val handlePagingResult = handlePagingResult(articles = articles)
     if (handlePagingResult) {
         LazyColumn(
-            modifier = modifier.padding(top = 5.dp),
+            modifier = modifier,
             verticalArrangement = Arrangement.spacedBy(SmallPadding1)
         ) {
             items(count = articles.itemCount) {
