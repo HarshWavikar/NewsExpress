@@ -12,6 +12,7 @@ import com.codewithharsh.newsexpress.domain.usecases.app_entry.ReadAppEntry
 import com.codewithharsh.newsexpress.domain.usecases.app_entry.SaveAppEntry
 import com.codewithharsh.newsexpress.domain.usecases.news.GetNews
 import com.codewithharsh.newsexpress.domain.usecases.news.NewsUseCase
+import com.codewithharsh.newsexpress.domain.usecases.news.SearchNews
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -59,7 +60,8 @@ object AppModule {
     @Singleton
     fun provideNewsUseCase(newsRepository: NewsRepository): NewsUseCase {
         return NewsUseCase(
-            getNews = GetNews(newsRepository = newsRepository)
+            getNews = GetNews(newsRepository = newsRepository),
+            searchNews = SearchNews(newsRepository = newsRepository)
         )
     }
 }

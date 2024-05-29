@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 @SuppressLint("UnnecessaryComposedModifier")
 fun Modifier.coloredShadow(
     color: Color,
-    alpha: Float = 0.2f,
+    alpha: Float = 5.0f,
     borderRadius: Dp = 1.dp,
     shadowRadius: Dp = 20.dp,
     offsetY: Dp = 0.dp,
