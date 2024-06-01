@@ -1,7 +1,12 @@
 package com.codewithharsh.newsexpress.di
 
 import android.app.Application
+import androidx.room.Room
 import com.codewithharsh.newsexpress.core.Constants.BASE_URL
+import com.codewithharsh.newsexpress.core.Constants.NEWS_DB
+import com.codewithharsh.newsexpress.data.local.NewsDAO
+import com.codewithharsh.newsexpress.data.local.NewsDatabase
+import com.codewithharsh.newsexpress.data.local.NewsTypeConverter
 import com.codewithharsh.newsexpress.data.manager.LocalUserManagerImpl
 import com.codewithharsh.newsexpress.data.remote.NewsApi
 import com.codewithharsh.newsexpress.data.repository.NewsRepositoryImpl
@@ -63,5 +68,24 @@ object AppModule {
             getNews = GetNews(newsRepository = newsRepository),
             searchNews = SearchNews(newsRepository = newsRepository)
         )
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsDatabase(application: Application): NewsDatabase {
+        return Room.databaseBuilder(
+            context = application,
+            klass = NewsDatabase::class.java,
+            name = NEWS_DB
+        )
+            .addTypeConverter(NewsTypeConverter())
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsDao(newsDatabase: NewsDatabase): NewsDAO {
+        return newsDatabase.newsDAO
     }
 }

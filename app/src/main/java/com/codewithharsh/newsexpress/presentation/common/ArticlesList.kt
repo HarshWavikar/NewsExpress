@@ -25,7 +25,7 @@ fun ArticlesList(
     val handlePagingResult = handlePagingResult(articles = articles)
     if (handlePagingResult) {
         LazyColumn(
-            modifier = modifier,
+            modifier = modifier.padding(top = 10.dp),
             verticalArrangement = Arrangement.spacedBy(SmallPadding1)
         ) {
             items(count = articles.itemCount) {

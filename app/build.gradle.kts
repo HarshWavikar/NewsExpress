@@ -4,6 +4,7 @@ plugins {
 
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -97,5 +98,10 @@ dependencies {
 
     // Extended icons
     implementation(libs.androidx.material.icons.extended.android)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
 
 }

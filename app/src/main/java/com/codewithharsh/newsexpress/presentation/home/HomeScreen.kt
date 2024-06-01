@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -172,7 +173,7 @@ fun HomeContent(
             Spacer(modifier = Modifier.padding(VerySmallPadding))
 
             ArticlesList(
-                modifier = Modifier.padding(horizontal = 5.dp).padding(top = 10.dp),
+                modifier = Modifier.padding(horizontal = 5.dp).padding(top = 10.dp).fillMaxWidth(),
                 articles = articles,
                 onArticleClick = {
                     navigate(Route.DetailScreen.route)
